@@ -11,6 +11,8 @@ services:
       # Jeton d'accès : sans lui, l'instance est ouverte à qui peut l'atteindre.
       # Indispensable dès que l'app sort du réseau local.
       # MENUS_TOKEN: "un-jeton-long-et-aleatoire"
+      # Onglet « Claude » de l'app (facultatif) :
+      # ANTHROPIC_API_KEY: "sk-ant-..."
     volumes:
       # La base en clair : settings.json, ingredients.json, recipes.json, weeks/
       - ./data:/data

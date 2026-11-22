@@ -1,5 +1,6 @@
 mod api;
 mod app;
+mod chat;
 mod mcp;
 mod model;
 mod planner;
@@ -167,7 +168,8 @@ async fn serve(data: &PathBuf, host: &str, port: u16) -> Result<()> {
     .ok()
     .map(|t| t.split_whitespace().collect::<String>())
     .filter(|t| !t.is_empty());
-  let state = app::AppState::new(store, auth_token);
+  let chat = chat::Chat::from_env(port);
+  let state = app::AppState::new(store, auth_token, chat);
 
   // Gardée en vie le temps du processus : la surveillance s'arrête avec elle.
   let _watcher = watch::spawn(state.clone())?;
@@ -192,6 +194,14 @@ async fn serve(data: &PathBuf, host: &str, port: u16) -> Result<()> {
       "jeton requis (MENUS_TOKEN)"
     } else {
       "ouvert (aucun jeton configuré)"
+    }
+  );
+
+  println!(
+    "  chat      : {}",
+    match &state.chat {
+      Some(chat) => format!("Claude ({})", chat.model()),
+      None => "désactivé (pas de ANTHROPIC_API_KEY)".into(),
     }
   );
 

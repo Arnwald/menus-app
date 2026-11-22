@@ -15,7 +15,7 @@ use std::collections::HashMap;
 use std::fmt::Write as _;
 use std::time::Duration;
 
-const INSTRUCTIONS: &str = "menus plans a family's dinners (soupers) and weekend brunches week by \
+pub(crate) const INSTRUCTIONS: &str = "menus plans a family's dinners (soupers) and weekend brunches week by \
 week, and builds the matching Coop/Migros shopping list. The family lives in Valais, Switzerland, \
 speaks French (souper, demi-crème, dl) and wants to eat better without spending its evenings \
 cooking. These tools read and change the family's shared instance: every change shows at once \
@@ -1054,6 +1054,16 @@ impl ServerHandler for Menus {
       .with_server_info(Implementation::new("menus", env!("CARGO_PKG_VERSION")))
       .with_instructions(INSTRUCTIONS)
   }
+}
+
+/// Les outils, branchés sur une instance : pour le chat de l'app, qui les sert en interne.
+pub(crate) fn tools_for(base: &str, token: Option<String>) -> anyhow::Result<Menus> {
+  let http = reqwest::Client::builder().timeout(Duration::from_secs(30)).no_proxy().build()?;
+  Ok(Menus::new(Api {
+    http,
+    base: base.trim_end_matches('/').to_string(),
+    token,
+  }))
 }
 
 /// Sert le protocole MCP sur stdin/stdout jusqu'à ce que l'assistant ferme la connexion.

@@ -12,17 +12,20 @@ pub struct AppState {
   pub write_lock: Arc<tokio::sync::Mutex<()>>,
   /// Jeton d'accès facultatif (`MENUS_TOKEN`).
   pub auth_token: Option<String>,
+  /// Le chat avec Claude, si une clé API est configurée.
+  pub chat: Option<crate::chat::Chat>,
   /// Horodatage de la dernière écriture faite par le serveur lui-même, pour que
   /// la surveillance du dossier ne rediffuse pas nos propres modifications.
   last_self_write: Arc<AtomicI64>,
 }
 
 impl AppState {
-  pub fn new(store: Store, auth_token: Option<String>) -> Self {
+  pub fn new(store: Store, auth_token: Option<String>, chat: Option<crate::chat::Chat>) -> Self {
     AppState {
       store,
       write_lock: Arc::new(tokio::sync::Mutex::new(())),
       auth_token,
+      chat,
       last_self_write: Arc::new(AtomicI64::new(0)),
     }
   }

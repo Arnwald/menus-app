@@ -17,7 +17,8 @@ Claude (application de bureau ou Claude Code), sans clé API.
   semaines, et l'équilibre : 2 poissons, au moins 3 soirs végétariens dont 1 de
   légumineuses, au plus 2 viandes et 2 volailles, féculents variés. Les favoris
   reviennent plus souvent, les recettes exclues jamais.
-- **Avec Claude**, par le serveur MCP `menus mcp` : proposer une semaine à partir
+- **Avec Claude**, dans l'onglet « Claude » de l'app (clé API sur le serveur)
+  ou par le serveur MCP `menus mcp` depuis Claude Desktop : proposer une semaine à partir
   d'envies (« il reste des courgettes, jeudi on mange dehors »), en créant au
   besoin quelques recettes ; transcrire une recette collée ou photographiée ;
   modifier une recette (« sans crème », « plus rapide »). Tout ce que Claude
@@ -166,6 +167,25 @@ claude mcp add menus -e MENUS_TOKEN=… -- menus mcp --url http://<nas>:8098
 Pour l'instance du NAS, remplacer l'adresse par `http://<nas>:8098` et
 renseigner le jeton. `menus serve` doit tourner : sinon les outils répondent
 qu'il ne répond pas, avec l'adresse essayée.
+## Claude dans l'app
+
+L'onglet « Claude » apparaît quand le serveur a une clé API (`ANTHROPIC_API_KEY`).
+Chacun discute depuis son téléphone, sans compte Claude : le serveur appelle l'API
+Messages avec les mêmes outils que `menus mcp`, servis en mémoire et relayés vers sa
+propre API, puis renvoie la réponse. La clé ne quitte pas le serveur. On peut joindre
+une photo de recette, réduite sur le téléphone avant l'envoi. La conversation est
+gardée sur l'appareil (« Nouvelle conversation » la vide).
+
+| Variable | Rôle |
+|---|---|
+| `ANTHROPIC_API_KEY` | clé de l'organisation Console ; sans elle, pas d'onglet |
+| `MENUS_CLAUDE_MODEL` | modèle (défaut `claude-sonnet-5-5`) |
+
+Les abonnements Max et Ultra donnent des crédits API mensuels : sur claude.ai,
+Settings > Billing > API credits > « Link organization », puis créer la clé dans
+cette organisation sur platform.claude.com. Quand les crédits sont épuisés, l'API
+refuse et le chat le dit, sans facturation surprise.
+
 ## Développement
 
 ```bash

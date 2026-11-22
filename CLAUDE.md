@@ -118,7 +118,8 @@ curl -X PATCH localhost:8080/api/settings -H 'content-type: application/json' \
 `src/model.rs` types · `src/store.rs` lecture/écriture atomique · `src/recipes.rs`
 brouillons, lignes en texte libre, validation · `src/shopping.rs` liste,
 arrondis, export texte · `src/planner.rs` propositions locales · `src/mcp.rs`
-serveur MCP (relais vers l'API) · `src/seed.rs` + `seed/*.toml` base de départ · `src/api/`
+serveur MCP (relais vers l'API) · `src/chat.rs` onglet Claude (API Messages + ces
+mêmes outils en mémoire) · `src/seed.rs` + `seed/*.toml` base de départ · `src/api/`
 routes · `web/` interface.
 
 `cargo test` couvre la base de départ (chaque ingrédient au catalogue, mêmes

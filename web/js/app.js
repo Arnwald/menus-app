@@ -1,17 +1,19 @@
 // Point d'entrée : navigation entre onglets, en-tête de semaine, mises à jour en direct.
 
-import { listen } from './api.js';
+import { api, listen } from './api.js';
 import { S, reload, setRenderer } from './store.js';
 import { renderWeek } from './week.js';
 import { renderShopping } from './shopping.js';
 import { renderRecipes } from './recipes.js';
 import { renderSettings } from './settings.js';
+import { renderChat } from './chat.js';
 
 const VIEWS = {
   semaine: renderWeek,
   courses: renderShopping,
   recettes: renderRecipes,
   reglages: renderSettings,
+  claude: renderChat,
 };
 
 const $ = (id) => document.getElementById(id);
@@ -80,6 +82,13 @@ listen(() => {
 });
 // Au retour sur l'app (téléphone sorti de veille), on se resynchronise.
 document.addEventListener('visibilitychange', () => { if (document.visibilityState === 'visible') reload(); });
+
+// L'onglet Claude n'apparaît que si le serveur a une clé API.
+api.chatInfo().then((info) => {
+  if (!info?.enabled) return;
+  $('tab-claude').hidden = false;
+  document.querySelector('.tabbar').classList.add('five');
+}).catch(() => {});
 
 route();
 reload();

@@ -69,6 +69,8 @@ export const api = {
   addExtras: (week, text) => send('POST', `/api/weeks/${week}/extras`, { json: { text } }),
   patchExtra: (week, id, patch) => send('PATCH', `/api/weeks/${week}/extras/${enc(id)}`, { json: patch }),
   deleteExtra: (week, id) => send('DELETE', `/api/weeks/${week}/extras/${enc(id)}`),
+  chatInfo: () => send('GET', '/api/chat'),
+  chat: (messages, week) => send('POST', '/api/chat', { json: { messages, week } }),
   patchSettings: (patch) => send('PATCH', '/api/settings', { json: patch }),
 };
 

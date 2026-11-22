@@ -93,6 +93,13 @@ pub fn router(state: AppState) -> Router {
     .route("/weeks/{week}/extras", post(weeks::add_extras))
     .route("/weeks/{week}/extras/{id}", patch(weeks::patch_extra).delete(weeks::delete_extra))
     .route("/stream", get(sse::stream))
+    .route(
+      "/chat",
+      get(crate::chat::info)
+        .post(crate::chat::send)
+        // Une photo de recette passe dans la conversation.
+        .layer(axum::extract::DefaultBodyLimit::max(16 << 20)),
+    )
     .with_state(state.clone());
 
   Router::new().nest("/api", routes).layer(middleware::from_fn_with_state(state, auth))

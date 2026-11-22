@@ -12,6 +12,10 @@ services:
       # À ADAPTER — obligatoire : sans jeton, quiconque atteint ce port
       # lit et modifie vos menus. Génère-le avec : openssl rand -hex 24
       MENUS_TOKEN: REMPLACE-MOI
+      # Facultatif : l'onglet « Claude » de l'app. Clé de l'organisation Console
+      # liée à l'abonnement (Settings > Billing > API credits sur claude.ai).
+      # ANTHROPIC_API_KEY: sk-ant-...
+      # MENUS_CLAUDE_MODEL: claude-sonnet-5-5
     volumes:
       # Dataset TrueNAS qui contiendra la base en clair
       # (settings.json, ingredients.json, recipes.json, weeks/).

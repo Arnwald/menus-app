@@ -2,7 +2,7 @@
 name = "menus"
 version = "0.1.0"
 edition = "2021"
-description = "Menus de la semaine et liste de courses : base JSON en clair, API HTTP, UI web, propositions par Claude"
+description = "Menus de la semaine et liste de courses : base JSON en clair, API HTTP, UI web, chat avec Claude"
 
 [dependencies]
 anyhow = "1"
@@ -15,7 +15,7 @@ notify = "8"
 notify-debouncer-full = "0.5"
 rand = "0.8"
 reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
-rmcp = { version = "3.5", features = ["server", "macros", "schemars", "transport-io"] }
+rmcp = { version = "3.5", features = ["server", "client", "macros", "schemars", "transport-io", "transport-async-rw"] }
 rust-embed = "8"
 serde = { version = "1", features = ["derive"] }
 serde_json = { version = "1", features = ["preserve_order"] }
