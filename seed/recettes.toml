@@ -1,0 +1,849 @@
+# Base de départ, chargée au premier lancement quand data/recipes.json n'existe pas.
+#
+# Quantités pour UN adulte ; l'app multiplie par (adultes + enfants × facteur).
+# Une ligne d'ingrédient s'écrit « nom quantité unité », le nom tel qu'il
+# figure dans catalogue.toml. Sel et poivre ne sont jamais listés.
+#
+# meal     dinner | brunch          brunch_kind  sweet | savory | base
+# protein  fish | poultry | meat | veggie | legumes
+# starch   rice | pasta | potato | bread | couscous | quinoa | polenta | noodles | tortilla | gnocchi | none
+# keeps    se réchauffe bien (candidat pour « restes le lendemain »)
+# months   mois où le plat a du sens ; absent = toute l'année
+
+# ─── Soupers rapides (≤ 35 min) ───────────────────────────────────────────
+
+[[recipe]]
+id = "saumon-brocoli-riz"
+name = "Saumon au four, brocoli & riz"
+meal = "dinner"
+minutes = 25
+protein = "fish"
+starch = "rice"
+ing = ["filet de saumon 140 g", "brocoli 200 g", "riz basmati 75 g", "citron 0.25 pce", "huile d'olive 1 cs"]
+steps = [
+  "Préchauffer le four à 200 °C et lancer la cuisson du riz.",
+  "Couper le brocoli en fleurettes. Sur une plaque, disposer le saumon et le brocoli, arroser d'huile, saler, poivrer, ajouter des rondelles de citron.",
+  "Cuire 12 à 15 min : le saumon doit rester nacré à cœur.",
+  "Servir avec le riz et un filet de citron.",
+]
+
+[[recipe]]
+id = "pates-thon-tomate"
+name = "Pâtes au thon, tomates & olives"
+meal = "dinner"
+minutes = 20
+protein = "fish"
+starch = "pasta"
+ing = ["pâtes courtes 100 g", "thon (boîte) 50 g", "tomates concassées (boîte) 130 g", "olives noires 15 g", "oignon 0.25 pce", "ail 0.5 gousse", "huile d'olive 0.5 cs", "roquette 20 g"]
+steps = [
+  "Cuire les pâtes.",
+  "Faire revenir l'oignon et l'ail émincés dans l'huile, ajouter les tomates et laisser réduire 8 min.",
+  "Ajouter le thon égoutté et les olives, réchauffer 2 min.",
+  "Mélanger aux pâtes et servir avec la roquette.",
+]
+
+[[recipe]]
+id = "curry-lentilles-corail"
+name = "Curry de lentilles corail au lait de coco"
+meal = "dinner"
+minutes = 30
+protein = "legumes"
+starch = "rice"
+keeps = true
+ing = ["lentilles corail 70 g", "lait de coco 100 ml", "tomates concassées (boîte) 100 g", "oignon 0.25 pce", "ail 0.5 gousse", "gingembre frais 5 g", "curry en poudre 1 cc", "épinards frais 50 g", "riz basmati 60 g", "huile de colza 0.5 cs", "coriandre 0.15 botte"]
+steps = [
+  "Lancer le riz. Faire revenir oignon, ail et gingembre dans l'huile, ajouter le curry 30 s.",
+  "Ajouter les lentilles rincées, les tomates, le lait de coco et 2 dl d'eau par adulte. Mijoter 15 à 18 min.",
+  "Incorporer les épinards hors du feu, saler.",
+  "Servir sur le riz, parsemer de coriandre.",
+]
+
+[[recipe]]
+id = "tortilla-espagnole"
+name = "Tortilla de pommes de terre & salade verte"
+meal = "dinner"
+minutes = 30
+protein = "veggie"
+starch = "potato"
+ing = ["œufs 2 pce", "pomme de terre 200 g", "oignon 0.25 pce", "salade verte 0.25 pce", "huile d'olive 1.5 cs", "vinaigre balsamique 0.5 cs", "moutarde 0.25 cc"]
+steps = [
+  "Couper les pommes de terre en fines tranches et l'oignon en lamelles. Les cuire 15 min à feu moyen dans l'huile, à couvert.",
+  "Battre les œufs, saler, y verser les pommes de terre égouttées.",
+  "Remettre dans la poêle, cuire 5 min, retourner à l'aide d'une assiette, cuire 3 min.",
+  "Servir tiède avec la salade assaisonnée (vinaigre, moutarde, huile).",
+]
+
+[[recipe]]
+id = "wok-poulet-nouilles"
+name = "Wok de poulet, légumes & nouilles"
+meal = "dinner"
+minutes = 25
+protein = "poultry"
+starch = "noodles"
+ing = ["filet de poulet 120 g", "nouilles aux œufs 75 g", "poivron 0.5 pce", "carotte 70 g", "brocoli 80 g", "sauce soja 1.5 cs", "gingembre frais 5 g", "ail 0.5 gousse", "huile de colza 1 cs", "miel 0.5 cs"]
+steps = [
+  "Cuire les nouilles, les égoutter.",
+  "Saisir le poulet en lanières dans l'huile très chaude, réserver.",
+  "Sauter les légumes en lamelles 4 min avec l'ail et le gingembre.",
+  "Remettre le poulet et les nouilles, ajouter sauce soja et miel, mélanger 1 min.",
+]
+
+[[recipe]]
+id = "tacos-haricots-noirs"
+name = "Tacos aux haricots noirs, maïs & avocat"
+meal = "dinner"
+minutes = 20
+protein = "legumes"
+starch = "tortilla"
+ing = ["tortillas de blé 2 pce", "haricots noirs (boîte) 120 g", "maïs (boîte) 50 g", "avocat 0.5 pce", "tomate 80 g", "chou rouge 50 g", "citron vert 0.25 pce", "yaourt grec 40 g", "gruyère râpé 20 g", "cumin 0.5 cc"]
+steps = [
+  "Réchauffer les haricots égouttés avec le maïs et le cumin, écraser grossièrement.",
+  "Émincer le chou, couper la tomate et l'avocat en dés, arroser de citron vert.",
+  "Chauffer les tortillas à la poêle.",
+  "Chacun garnit : haricots, crudités, fromage, une cuillère de yaourt.",
+]
+
+[[recipe]]
+id = "gnocchis-epinards-mozza"
+name = "Gnocchis poêlés, épinards, tomates cerises & mozzarella"
+meal = "dinner"
+minutes = 20
+protein = "veggie"
+starch = "gnocchi"
+ing = ["gnocchis 200 g", "épinards frais 70 g", "tomates cerises 100 g", "mozzarella 60 g", "ail 0.5 gousse", "huile d'olive 1 cs", "basilic 0.15 botte"]
+steps = [
+  "Dorer les gnocchis 6 à 8 min dans l'huile, sans les cuire à l'eau.",
+  "Ajouter l'ail et les tomates coupées en deux, 3 min.",
+  "Ajouter les épinards, laisser tomber 1 min.",
+  "Servir avec la mozzarella déchirée et le basilic.",
+]
+
+[[recipe]]
+id = "soupe-legumes-tartines"
+name = "Soupe de légumes & tartines au fromage"
+meal = "dinner"
+minutes = 35
+active = 15
+protein = "veggie"
+starch = "bread"
+keeps = true
+months = [10, 11, 12, 1, 2, 3, 4]
+ing = ["carotte 100 g", "poireau 80 g", "pomme de terre 100 g", "céleri branche 30 g", "oignon 0.25 pce", "bouillon (cube) 0.25 pce", "huile d'olive 0.5 cs", "pain complet 80 g", "gruyère râpé 30 g"]
+steps = [
+  "Faire suer l'oignon dans l'huile, ajouter les légumes en morceaux, couvrir d'eau (environ 3 dl par adulte) et le bouillon.",
+  "Cuire 20 min, mixer.",
+  "Pendant ce temps, gratiner les tranches de pain couvertes de fromage 5 min au four.",
+]
+
+[[recipe]]
+id = "cabillaud-papillote"
+name = "Cabillaud en papillote, pommes de terre & haricots verts"
+meal = "dinner"
+minutes = 30
+protein = "fish"
+starch = "potato"
+ing = ["filet de cabillaud 150 g", "pomme de terre 200 g", "haricots verts surgelés 120 g", "citron 0.25 pce", "aneth 0.1 botte", "huile d'olive 1 cs", "beurre 10 g"]
+steps = [
+  "Cuire les pommes de terre 20 min à l'eau salée. Four à 200 °C.",
+  "Poser chaque filet sur du papier cuisson avec citron, aneth, huile, sel, poivre. Fermer et cuire 12 min.",
+  "Cuire les haricots 8 min à l'eau, les rouler dans le beurre.",
+]
+
+[[recipe]]
+id = "pates-pesto-haricots"
+name = "Pâtes au pesto, haricots verts & pommes de terre"
+meal = "dinner"
+minutes = 25
+protein = "veggie"
+starch = "pasta"
+ing = ["pâtes courtes 90 g", "pomme de terre 80 g", "haricots verts surgelés 80 g", "pesto 35 g", "parmesan 15 g"]
+steps = [
+  "Cuire les pommes de terre en petits dés 5 min dans l'eau salée, ajouter les pâtes, puis les haricots 6 min avant la fin.",
+  "Égoutter en gardant un peu d'eau de cuisson.",
+  "Mélanger avec le pesto et un peu d'eau de cuisson, servir avec le parmesan.",
+]
+
+[[recipe]]
+id = "riz-saute-oeufs"
+name = "Riz sauté aux œufs, petits pois & carottes"
+meal = "dinner"
+minutes = 20
+protein = "veggie"
+starch = "rice"
+ing = ["riz basmati 70 g", "œufs 1.5 pce", "petits pois surgelés 60 g", "carotte 60 g", "oignon 0.25 pce", "ail 0.5 gousse", "sauce soja 1.5 cs", "huile de colza 1 cs"]
+steps = [
+  "Idéalement avec du riz cuit la veille ; sinon le cuire et l'étaler pour le refroidir.",
+  "Sauter oignon, ail et carotte en petits dés 3 min, ajouter les petits pois.",
+  "Pousser sur le côté, brouiller les œufs, puis ajouter le riz et la sauce soja. Sauter 3 min à feu vif.",
+]
+
+[[recipe]]
+id = "quesadillas-poulet"
+name = "Quesadillas poulet, poivrons & fromage"
+meal = "dinner"
+minutes = 20
+protein = "poultry"
+starch = "tortilla"
+ing = ["tortillas de blé 2 pce", "filet de poulet 90 g", "poivron 0.5 pce", "maïs (boîte) 30 g", "gruyère râpé 40 g", "paprika 0.5 cc", "huile d'olive 0.5 cs", "salade verte 0.2 pce"]
+steps = [
+  "Saisir le poulet en petits dés avec le poivron et le paprika, 6 min.",
+  "Garnir une moitié de chaque tortilla (poulet, maïs, fromage), replier.",
+  "Dorer 2 min par face dans une poêle sèche. Servir avec la salade.",
+]
+
+[[recipe]]
+id = "steak-hache-puree"
+name = "Steak haché, purée & carottes"
+meal = "dinner"
+minutes = 30
+protein = "meat"
+starch = "potato"
+ing = ["viande hachée de bœuf 130 g", "pomme de terre 220 g", "lait 60 ml", "beurre 10 g", "carotte 120 g", "huile de colza 0.5 cs"]
+steps = [
+  "Cuire pommes de terre et carottes (en rondelles) 20 min à l'eau salée, dans deux casseroles.",
+  "Écraser les pommes de terre avec le lait chaud et le beurre.",
+  "Former les steaks, les cuire 3 à 4 min par face.",
+]
+
+[[recipe]]
+id = "croque-monsieur"
+name = "Croque-monsieur & salade de tomates"
+meal = "dinner"
+minutes = 20
+protein = "meat"
+starch = "bread"
+ing = ["pain de mie complet 4 tranche", "jambon cuit 2 tranche", "gruyère râpé 40 g", "beurre 10 g", "tomate 100 g", "salade verte 0.2 pce"]
+steps = [
+  "Four à 220 °C. Beurrer légèrement le pain, garnir de jambon et de fromage, refermer, parsemer de fromage.",
+  "Cuire 10 min jusqu'à ce que ce soit doré.",
+  "Servir avec la salade et les tomates.",
+]
+
+[[recipe]]
+id = "carbonara"
+name = "Spaghetti carbonara & salade"
+meal = "dinner"
+minutes = 20
+protein = "meat"
+starch = "pasta"
+ing = ["spaghetti 100 g", "lardons 50 g", "œufs 1 pce", "parmesan 20 g", "salade verte 0.2 pce"]
+steps = [
+  "Cuire les pâtes. Dorer les lardons à sec.",
+  "Battre les œufs avec le parmesan et beaucoup de poivre.",
+  "Hors du feu, mélanger pâtes, lardons et œufs avec un peu d'eau de cuisson : la sauce doit napper sans cuire les œufs.",
+]
+
+[[recipe]]
+id = "crevettes-ail-riz"
+name = "Crevettes à l'ail, courgettes & riz"
+meal = "dinner"
+minutes = 20
+protein = "fish"
+starch = "rice"
+ing = ["crevettes décortiquées 110 g", "riz basmati 70 g", "courgette 150 g", "ail 1 gousse", "citron 0.25 pce", "persil 0.15 botte", "huile d'olive 1 cs", "piment 0.25 cc"]
+steps = [
+  "Lancer le riz.",
+  "Sauter les courgettes en demi-rondelles 5 min, réserver.",
+  "Saisir les crevettes 2 min avec l'ail et le piment, remettre les courgettes, citron et persil.",
+]
+
+[[recipe]]
+id = "chili-sin-carne"
+name = "Chili sin carne & riz"
+meal = "dinner"
+minutes = 35
+active = 15
+protein = "legumes"
+starch = "rice"
+keeps = true
+ing = ["haricots rouges (boîte) 120 g", "tomates concassées (boîte) 150 g", "poivron 0.5 pce", "oignon 0.3 pce", "ail 0.5 gousse", "maïs (boîte) 40 g", "cumin 0.5 cc", "paprika 0.5 cc", "piment 0.25 cc", "riz basmati 60 g", "yaourt grec 30 g", "huile d'olive 0.5 cs"]
+steps = [
+  "Faire revenir oignon, ail et poivron 5 min, ajouter les épices.",
+  "Ajouter tomates, haricots et maïs égouttés, mijoter 20 min.",
+  "Servir avec le riz et une cuillère de yaourt. Encore meilleur le lendemain.",
+]
+
+[[recipe]]
+id = "wraps-falafels"
+name = "Wraps falafels, houmous & crudités"
+meal = "dinner"
+minutes = 15
+protein = "legumes"
+starch = "tortilla"
+ing = ["tortillas de blé 2 pce", "falafels 4 pce", "houmous 50 g", "carotte 50 g", "concombre 0.25 pce", "tomate 60 g", "salade verte 0.15 pce", "yaourt grec 30 g"]
+steps = [
+  "Réchauffer les falafels 8 min au four.",
+  "Râper la carotte, couper concombre et tomate.",
+  "Tartiner les tortillas de houmous, garnir, rouler.",
+]
+
+[[recipe]]
+id = "polenta-champignons"
+name = "Polenta crémeuse aux champignons & parmesan"
+meal = "dinner"
+minutes = 25
+protein = "veggie"
+starch = "polenta"
+months = [9, 10, 11, 12, 1, 2, 3, 4]
+ing = ["polenta 70 g", "lait 150 ml", "bouillon (cube) 0.25 pce", "champignons de Paris 150 g", "ail 0.5 gousse", "persil 0.15 botte", "parmesan 25 g", "beurre 10 g", "roquette 25 g"]
+steps = [
+  "Porter le lait et autant d'eau à ébullition avec le bouillon, verser la polenta en pluie, cuire en remuant selon le paquet.",
+  "Sauter les champignons émincés à feu vif avec l'ail, finir au persil.",
+  "Incorporer beurre et parmesan à la polenta, servir avec les champignons et la roquette.",
+]
+
+[[recipe]]
+id = "poulet-paprika"
+name = "Poulet au paprika, poivrons & riz"
+meal = "dinner"
+minutes = 30
+protein = "poultry"
+starch = "rice"
+keeps = true
+ing = ["filet de poulet 130 g", "poivron 0.75 pce", "oignon 0.3 pce", "paprika 1 cc", "tomates concassées (boîte) 60 g", "demi-crème 40 ml", "riz basmati 70 g", "huile de colza 0.5 cs"]
+steps = [
+  "Lancer le riz. Saisir le poulet en morceaux, réserver.",
+  "Faire revenir oignon et poivrons 5 min, ajouter le paprika, les tomates, puis la crème.",
+  "Remettre le poulet, mijoter 8 min.",
+]
+
+[[recipe]]
+id = "raclette"
+name = "Raclette, pommes de terre & cornichons"
+meal = "dinner"
+minutes = 25
+protein = "veggie"
+starch = "potato"
+months = [11, 12, 1, 2]
+ing = ["fromage à raclette (tranches) 180 g", "pomme de terre 250 g", "cornichons 30 g", "salade verte 0.25 pce"]
+steps = [
+  "Cuire les pommes de terre en robe des champs 20 à 25 min.",
+  "Faire fondre le fromage à l'appareil (ou au four).",
+  "Servir avec cornichons et une salade verte pour équilibrer.",
+]
+
+[[recipe]]
+id = "boeuf-brocoli"
+name = "Bœuf sauté au brocoli & riz"
+meal = "dinner"
+minutes = 25
+protein = "meat"
+starch = "rice"
+ing = ["émincé de bœuf 120 g", "brocoli 150 g", "riz basmati 70 g", "sauce soja 1.5 cs", "gingembre frais 5 g", "ail 0.5 gousse", "miel 0.5 cs", "huile de colza 1 cs"]
+steps = [
+  "Lancer le riz. Blanchir le brocoli 2 min.",
+  "Saisir le bœuf à feu très vif en deux fois, réserver.",
+  "Sauter ail et gingembre, ajouter brocoli, bœuf, soja et miel, 1 min.",
+]
+
+[[recipe]]
+id = "tortellini-tomate-courgette"
+name = "Tortellini, sauce tomate & courgettes"
+meal = "dinner"
+minutes = 15
+protein = "veggie"
+starch = "pasta"
+ing = ["tortellini frais 150 g", "sauce tomate (passata) 120 g", "courgette 120 g", "ail 0.5 gousse", "huile d'olive 0.5 cs", "parmesan 15 g", "basilic 0.1 botte"]
+steps = [
+  "Sauter les courgettes en dés avec l'ail 5 min, ajouter la passata, mijoter 5 min.",
+  "Cuire les tortellini selon le paquet, les mélanger à la sauce.",
+  "Servir avec parmesan et basilic.",
+]
+
+[[recipe]]
+id = "cabillaud-patate-douce"
+name = "Cabillaud poêlé, purée de patate douce & épinards"
+meal = "dinner"
+minutes = 30
+protein = "fish"
+starch = "potato"
+ing = ["filet de cabillaud 150 g", "patate douce 250 g", "épinards frais 100 g", "ail 0.5 gousse", "citron 0.25 pce", "beurre 10 g", "huile d'olive 0.5 cs"]
+steps = [
+  "Cuire la patate douce en cubes 15 min à l'eau, écraser avec le beurre.",
+  "Poêler le poisson 3 min par face dans l'huile.",
+  "Faire tomber les épinards avec l'ail dans la même poêle, citronner.",
+]
+
+[[recipe]]
+id = "bowl-tofu-quinoa"
+name = "Bowl tofu, quinoa, avocat & crudités"
+meal = "dinner"
+minutes = 25
+protein = "veggie"
+starch = "quinoa"
+ing = ["tofu nature 100 g", "quinoa 60 g", "carotte 60 g", "chou rouge 50 g", "concombre 0.25 pce", "avocat 0.5 pce", "sauce soja 1 cs", "citron vert 0.25 pce", "miel 0.5 cs", "huile de colza 0.5 cs"]
+steps = [
+  "Cuire le quinoa 15 min.",
+  "Dorer le tofu en cubes dans l'huile, déglacer avec 1/2 cs de soja.",
+  "Râper la carotte, émincer le chou, trancher concombre et avocat.",
+  "Sauce : reste de soja, citron vert, miel. Composer les bols.",
+]
+
+[[recipe]]
+id = "soba-tofu-cacahuete"
+name = "Nouilles soba, tofu & sauce cacahuète"
+meal = "dinner"
+minutes = 20
+protein = "veggie"
+starch = "noodles"
+ing = ["nouilles soba 75 g", "tofu nature 90 g", "carotte 60 g", "poivron 0.5 pce", "beurre de cacahuète 1 cs", "sauce soja 1 cs", "citron vert 0.25 pce", "gingembre frais 5 g", "coriandre 0.1 botte"]
+steps = [
+  "Cuire les soba, les rincer à l'eau froide.",
+  "Sauce : beurre de cacahuète, soja, citron vert, gingembre râpé, un peu d'eau chaude.",
+  "Dorer le tofu, sauter les légumes en julienne 3 min, mélanger avec nouilles et sauce, coriandre.",
+]
+
+[[recipe]]
+id = "pizza-express"
+name = "Pizza maison express, jambon & champignons"
+meal = "dinner"
+minutes = 25
+protein = "meat"
+starch = "bread"
+ing = ["pâte à pizza (rouleau) 0.5 pce", "sauce tomate (passata) 60 g", "mozzarella 70 g", "jambon cuit 1 tranche", "champignons de Paris 50 g", "origan 0.25 cc", "roquette 20 g"]
+steps = [
+  "Four à 240 °C. Dérouler la pâte, étaler la passata, l'origan.",
+  "Garnir de champignons émincés, jambon et mozzarella.",
+  "Cuire 12 à 14 min, ajouter la roquette en sortant du four.",
+]
+
+[[recipe]]
+id = "salade-pois-chiches-feta"
+name = "Salade de pois chiches, feta & concombre"
+meal = "dinner"
+minutes = 15
+protein = "legumes"
+starch = "bread"
+months = [5, 6, 7, 8, 9]
+ing = ["pois chiches (boîte) 130 g", "concombre 0.3 pce", "tomates cerises 100 g", "feta 50 g", "oignon rouge 0.15 pce", "persil 0.2 botte", "citron 0.25 pce", "huile d'olive 1 cs", "pain complet 60 g"]
+steps = [
+  "Rincer les pois chiches, couper concombre, tomates, oignon et feta.",
+  "Assaisonner de citron, huile, persil, sel, poivre.",
+  "Servir avec du pain complet.",
+]
+
+[[recipe]]
+id = "salade-nicoise"
+name = "Salade niçoise"
+meal = "dinner"
+minutes = 25
+protein = "fish"
+starch = "potato"
+months = [5, 6, 7, 8, 9]
+ing = ["thon (boîte) 70 g", "pomme de terre 150 g", "haricots verts surgelés 80 g", "œufs 1 pce", "tomate 120 g", "olives noires 15 g", "salade verte 0.25 pce", "oignon rouge 0.1 pce", "huile d'olive 1 cs", "vinaigre balsamique 0.5 cs", "moutarde 0.25 cc"]
+steps = [
+  "Cuire pommes de terre (20 min), haricots (8 min) et œufs durs (9 min).",
+  "Disposer salade, tomates, pommes de terre, haricots, thon, œufs en quartiers et olives.",
+  "Arroser de vinaigrette moutardée.",
+]
+
+[[recipe]]
+id = "poulet-taboule"
+name = "Poulet grillé & taboulé"
+meal = "dinner"
+minutes = 35
+protein = "poultry"
+starch = "couscous"
+months = [5, 6, 7, 8, 9]
+ing = ["filet de poulet 130 g", "semoule de blé 60 g", "tomate 100 g", "concombre 0.25 pce", "persil 0.3 botte", "citron 0.5 pce", "oignon rouge 0.1 pce", "huile d'olive 1.5 cs", "paprika 0.5 cc", "yaourt grec 40 g"]
+steps = [
+  "Hydrater la semoule avec le même volume d'eau bouillante salée, 5 min, égrainer.",
+  "Ajouter tomates, concombre, oignon et beaucoup de persil, citron et huile.",
+  "Griller le poulet frotté de paprika 5 min par face. Servir avec le yaourt citronné.",
+]
+
+# ─── Soupers plus longs (dimanche, ou à préparer d'avance) ────────────────
+
+[[recipe]]
+id = "lasagnes-bolognaise"
+name = "Lasagnes bolognaise"
+meal = "dinner"
+minutes = 75
+active = 30
+protein = "meat"
+starch = "pasta"
+keeps = true
+ing = ["lasagnes (feuilles) 80 g", "viande hachée de bœuf 110 g", "sauce tomate (passata) 150 g", "oignon 0.3 pce", "carotte 50 g", "céleri branche 20 g", "lait 150 ml", "beurre 15 g", "farine 15 g", "gruyère râpé 25 g", "muscade 1 pincée"]
+steps = [
+  "Bolognaise : revenir oignon, carotte et céleri hachés, ajouter la viande, puis la passata. Mijoter 20 min.",
+  "Béchamel : fondre le beurre, ajouter la farine, puis le lait en fouettant jusqu'à épaississement ; sel, muscade.",
+  "Alterner feuilles, bolognaise, béchamel ; finir par béchamel et fromage.",
+  "Cuire 35 min à 190 °C.",
+]
+
+[[recipe]]
+id = "gratin-courge-pdt"
+name = "Gratin de courge & pommes de terre, salade verte"
+meal = "dinner"
+minutes = 60
+active = 20
+protein = "veggie"
+starch = "potato"
+keeps = true
+months = [10, 11, 12, 1, 2, 3]
+ing = ["courge butternut 200 g", "pomme de terre 150 g", "demi-crème 70 ml", "lait 50 ml", "gruyère râpé 40 g", "ail 0.5 gousse", "muscade 1 pincée", "salade verte 0.25 pce"]
+steps = [
+  "Four à 190 °C. Trancher finement courge et pommes de terre.",
+  "Les disposer en couches dans un plat frotté d'ail, saler, poivrer, muscade.",
+  "Verser crème et lait, couvrir de fromage. Cuire 40 à 45 min.",
+]
+
+[[recipe]]
+id = "poulet-roti-legumes"
+name = "Poulet rôti, pommes de terre & carottes au four"
+meal = "dinner"
+minutes = 80
+active = 15
+protein = "poultry"
+starch = "potato"
+keeps = true
+ing = ["poulet entier 0.3 pce", "pomme de terre 220 g", "carotte 120 g", "oignon 0.3 pce", "citron 0.25 pce", "ail 1 gousse", "herbes de Provence 0.5 cc", "huile d'olive 1 cs"]
+steps = [
+  "Four à 200 °C. Glisser citron et ail dans le poulet, frotter d'huile, sel et herbes.",
+  "Disposer autour les légumes en morceaux.",
+  "Rôtir 1 h 05 à 1 h 15 en arrosant une ou deux fois. Repos 10 min avant de découper.",
+]
+
+[[recipe]]
+id = "hachis-parmentier"
+name = "Hachis parmentier & salade verte"
+meal = "dinner"
+minutes = 60
+active = 25
+protein = "meat"
+starch = "potato"
+keeps = true
+ing = ["viande hachée de bœuf 110 g", "pomme de terre 250 g", "oignon 0.3 pce", "carotte 50 g", "concentré de tomate 0.5 cs", "lait 70 ml", "beurre 15 g", "gruyère râpé 20 g", "salade verte 0.2 pce"]
+steps = [
+  "Cuire les pommes de terre et faire une purée avec lait et beurre.",
+  "Revenir oignon et carotte hachés, ajouter la viande et le concentré, 8 min.",
+  "Viande au fond du plat, purée dessus, fromage. Gratiner 20 min à 200 °C.",
+]
+
+[[recipe]]
+id = "curry-poulet-doux"
+name = "Curry de poulet doux & riz"
+meal = "dinner"
+minutes = 45
+active = 20
+protein = "poultry"
+starch = "rice"
+keeps = true
+ing = ["filet de poulet 130 g", "lait de coco 80 ml", "yaourt nature 50 g", "tomates concassées (boîte) 60 g", "oignon 0.3 pce", "ail 1 gousse", "gingembre frais 5 g", "curry en poudre 1.5 cc", "riz basmati 70 g", "coriandre 0.1 botte", "huile de colza 0.5 cs"]
+steps = [
+  "Mariner le poulet en morceaux dans le yaourt et la moitié du curry (10 min suffisent).",
+  "Revenir oignon, ail et gingembre, ajouter le reste du curry, les tomates et le lait de coco.",
+  "Ajouter le poulet, mijoter 20 min. Servir avec le riz et la coriandre.",
+]
+
+[[recipe]]
+id = "risotto-champignons"
+name = "Risotto aux champignons"
+meal = "dinner"
+minutes = 40
+active = 30
+protein = "veggie"
+starch = "rice"
+ing = ["riz à risotto 85 g", "champignons de Paris 150 g", "oignon 0.25 pce", "bouillon (cube) 0.5 pce", "parmesan 25 g", "beurre 15 g", "huile d'olive 0.5 cs", "persil 0.1 botte"]
+steps = [
+  "Préparer le bouillon chaud (environ 3 dl par adulte). Sauter les champignons, réserver.",
+  "Nacrer oignon et riz dans l'huile, puis mouiller louche par louche en remuant, 18 min.",
+  "Hors du feu : champignons, beurre, parmesan, persil. Couvrir 2 min avant de servir.",
+]
+
+[[recipe]]
+id = "soupe-courge"
+name = "Soupe de courge butternut & pain complet"
+meal = "dinner"
+minutes = 45
+active = 15
+protein = "veggie"
+starch = "bread"
+keeps = true
+months = [9, 10, 11, 12, 1, 2]
+ing = ["courge butternut 300 g", "carotte 60 g", "pomme de terre 80 g", "oignon 0.3 pce", "bouillon (cube) 0.5 pce", "demi-crème 30 ml", "huile d'olive 0.5 cs", "pain complet 80 g"]
+steps = [
+  "Faire suer l'oignon, ajouter les légumes en cubes, couvrir d'eau, ajouter le bouillon.",
+  "Cuire 25 min, mixer avec la crème.",
+  "Servir avec du pain complet grillé.",
+]
+
+[[recipe]]
+id = "chili-con-carne"
+name = "Chili con carne & riz"
+meal = "dinner"
+minutes = 60
+active = 20
+protein = "meat"
+starch = "rice"
+keeps = true
+ing = ["viande hachée de bœuf 100 g", "haricots rouges (boîte) 90 g", "tomates concassées (boîte) 150 g", "poivron 0.4 pce", "oignon 0.3 pce", "ail 0.5 gousse", "maïs (boîte) 30 g", "cumin 0.5 cc", "paprika 0.5 cc", "piment 0.25 cc", "riz basmati 60 g", "yaourt grec 30 g", "huile de colza 0.5 cs"]
+steps = [
+  "Revenir oignon, ail et poivron, ajouter la viande et les épices.",
+  "Ajouter tomates, haricots et maïs, mijoter 40 min à couvert.",
+  "Servir avec le riz et le yaourt.",
+]
+
+[[recipe]]
+id = "tajine-pois-chiches"
+name = "Tajine de pois chiches, courge & pruneaux, semoule"
+meal = "dinner"
+minutes = 50
+active = 20
+protein = "legumes"
+starch = "couscous"
+keeps = true
+months = [10, 11, 12, 1, 2, 3]
+ing = ["pois chiches (boîte) 120 g", "courge butternut 150 g", "carotte 60 g", "oignon 0.3 pce", "tomates concassées (boîte) 100 g", "pruneaux 25 g", "gingembre frais 3 g", "cumin 0.5 cc", "cannelle 0.25 cc", "bouillon (cube) 0.25 pce", "huile d'olive 1 cs", "semoule de blé 70 g", "coriandre 0.1 botte"]
+steps = [
+  "Revenir oignon et épices dans l'huile, ajouter courge et carottes en gros morceaux.",
+  "Ajouter tomates, pois chiches, pruneaux, bouillon et un peu d'eau. Mijoter 30 min.",
+  "Préparer la semoule, servir avec la coriandre.",
+]
+
+[[recipe]]
+id = "gratin-poisson-poireaux"
+name = "Gratin de poisson aux poireaux"
+meal = "dinner"
+minutes = 45
+active = 20
+protein = "fish"
+starch = "potato"
+months = [10, 11, 12, 1, 2, 3]
+ing = ["filet de cabillaud 140 g", "poireau 150 g", "pomme de terre 200 g", "demi-crème 60 ml", "moutarde 0.5 cc", "gruyère râpé 20 g", "beurre 10 g"]
+steps = [
+  "Cuire les pommes de terre en rondelles 10 min. Fondre les poireaux émincés dans le beurre 10 min.",
+  "Dans un plat : pommes de terre, poireaux, poisson en morceaux. Napper de crème mêlée à la moutarde, fromage dessus.",
+  "Cuire 20 min à 200 °C.",
+]
+
+[[recipe]]
+id = "ragout-boeuf-carottes"
+name = "Ragoût de bœuf aux carottes"
+meal = "dinner"
+minutes = 150
+active = 25
+protein = "meat"
+starch = "potato"
+keeps = true
+months = [10, 11, 12, 1, 2, 3]
+ing = ["bœuf à braiser 160 g", "carotte 150 g", "oignon 0.4 pce", "champignons de Paris 60 g", "vin rouge 80 ml", "bouillon (cube) 0.5 pce", "concentré de tomate 0.5 cs", "farine 8 g", "herbes de Provence 0.5 cc", "huile de colza 1 cs", "pomme de terre 200 g"]
+steps = [
+  "Dorer la viande en morceaux en plusieurs fois, saupoudrer de farine.",
+  "Ajouter oignon, concentré, vin, bouillon et eau à hauteur, herbes. Couvrir et mijoter 1 h 30.",
+  "Ajouter carottes et champignons, 40 min de plus. Servir avec des pommes de terre vapeur.",
+]
+
+[[recipe]]
+id = "quiche-poireaux"
+name = "Quiche aux poireaux & salade verte"
+meal = "dinner"
+minutes = 55
+active = 20
+protein = "veggie"
+starch = "bread"
+keeps = true
+ing = ["pâte brisée (rouleau) 0.33 pce", "poireau 150 g", "œufs 1 pce", "demi-crème 50 ml", "lait 30 ml", "gruyère râpé 25 g", "beurre 5 g", "muscade 1 pincée", "salade verte 0.25 pce"]
+steps = [
+  "Four à 200 °C. Fondre les poireaux émincés dans le beurre 10 min.",
+  "Foncer le moule, répartir les poireaux, verser œufs battus avec crème, lait, muscade, sel, poivre. Fromage dessus.",
+  "Cuire 30 à 35 min.",
+]
+
+[[recipe]]
+id = "alplermagronen"
+name = "Älplermagronen & compote de pommes"
+meal = "dinner"
+minutes = 40
+active = 25
+protein = "veggie"
+starch = "pasta"
+months = [10, 11, 12, 1, 2, 3]
+ing = ["cornettes 90 g", "pomme de terre 100 g", "demi-crème 60 ml", "lait 40 ml", "gruyère râpé 50 g", "oignon 0.5 pce", "beurre 10 g", "compote de pommes 100 g", "salade verte 0.2 pce"]
+steps = [
+  "Cuire pommes de terre en dés et cornettes ensemble dans l'eau salée, égoutter.",
+  "Chauffer crème et lait, y mélanger pâtes, pommes de terre et fromage.",
+  "Dorer l'oignon émincé dans le beurre, le poser dessus. Servir avec la compote et une salade.",
+]
+
+[[recipe]]
+id = "minestrone"
+name = "Minestrone au pesto"
+meal = "dinner"
+minutes = 45
+active = 20
+protein = "legumes"
+starch = "pasta"
+keeps = true
+ing = ["haricots blancs (boîte) 80 g", "carotte 60 g", "céleri branche 30 g", "courgette 80 g", "oignon 0.25 pce", "pomme de terre 70 g", "tomates concassées (boîte) 100 g", "pâtes courtes 30 g", "bouillon (cube) 0.5 pce", "huile d'olive 0.5 cs", "pesto 15 g", "parmesan 15 g", "pain complet 50 g"]
+steps = [
+  "Faire suer oignon, carotte et céleri en dés, ajouter pomme de terre, courgette, tomates, bouillon et eau (3 dl par adulte).",
+  "Cuire 20 min, ajouter haricots et pâtes, 10 min de plus.",
+  "Servir avec une cuillère de pesto, du parmesan et du pain.",
+]
+
+# ─── Brunch ───────────────────────────────────────────────────────────────
+
+[[recipe]]
+id = "base-brunch"
+name = "Base du brunch : tresse, beurre, confiture, jus & clémentines"
+meal = "brunch"
+brunch_kind = "base"
+minutes = 5
+ing = ["tresse (Zopf) 80 g", "beurre 15 g", "confiture 25 g", "jus d'orange 150 ml", "clémentine 1 pce"]
+steps = ["Sortir le beurre à l'avance, presser ou servir le jus, poser le tout sur la table."]
+
+[[recipe]]
+id = "pancakes-fruits-rouges"
+name = "Pancakes, yaourt & fruits rouges"
+meal = "brunch"
+brunch_kind = "sweet"
+minutes = 25
+ing = ["farine 50 g", "lait 70 ml", "œufs 0.5 pce", "sucre 8 g", "levure chimique 0.5 cc", "beurre 8 g", "fruits rouges surgelés 60 g", "yaourt grec 50 g", "sirop d'érable 1 cs"]
+steps = [
+  "Mélanger farine, sucre, levure ; ajouter œufs et lait, puis le beurre fondu. Laisser reposer 5 min.",
+  "Cuire de petites louches 2 min par face dans une poêle légèrement graissée.",
+  "Chauffer les fruits rouges 3 min. Servir avec yaourt et sirop d'érable.",
+]
+
+[[recipe]]
+id = "pain-perdu-pommes"
+name = "Pain perdu à la tresse & pommes poêlées"
+meal = "brunch"
+brunch_kind = "sweet"
+minutes = 20
+ing = ["tresse (Zopf) 70 g", "œufs 1 pce", "lait 60 ml", "sucre 8 g", "cannelle 0.25 cc", "beurre 10 g", "pomme 0.5 pce"]
+steps = [
+  "Poêler les pommes en quartiers dans un peu de beurre avec la moitié du sucre et la cannelle.",
+  "Tremper les tranches de tresse dans œufs battus, lait et reste du sucre.",
+  "Dorer 2 min par face dans le beurre.",
+]
+
+[[recipe]]
+id = "birchermuesli"
+name = "Birchermüesli"
+meal = "brunch"
+brunch_kind = "sweet"
+minutes = 10
+ing = ["flocons d'avoine 45 g", "lait 60 ml", "yaourt nature 80 g", "pomme 0.5 pce", "amandes ou noisettes 10 g", "miel 0.5 cs"]
+steps = [
+  "La veille (ou 30 min avant) : mélanger flocons, lait et yaourt.",
+  "Au moment de servir, râper la pomme dedans, ajouter noisettes concassées et miel.",
+]
+
+[[recipe]]
+id = "granola-yaourt"
+name = "Granola maison, yaourt grec & banane"
+meal = "brunch"
+brunch_kind = "sweet"
+minutes = 35
+active = 10
+ing = ["flocons d'avoine 40 g", "amandes ou noisettes 15 g", "raisins secs 10 g", "miel 1 cs", "huile de colza 0.5 cs", "yaourt grec 120 g", "banane 0.5 pce"]
+steps = [
+  "Four à 160 °C. Mélanger flocons, fruits secs, miel et huile, étaler sur une plaque.",
+  "Cuire 20 à 25 min en remuant à mi-cuisson, ajouter les raisins en sortant. Se garde 2 semaines en bocal.",
+  "Servir sur le yaourt avec la banane en rondelles.",
+]
+
+[[recipe]]
+id = "crepes"
+name = "Crêpes & bananes"
+meal = "brunch"
+brunch_kind = "sweet"
+minutes = 30
+ing = ["farine 45 g", "lait 100 ml", "œufs 0.7 pce", "sucre 5 g", "beurre 8 g", "banane 0.5 pce"]
+steps = [
+  "Fouetter farine, sucre et œufs, ajouter le lait petit à petit puis le beurre fondu.",
+  "Cuire dans une poêle bien chaude, 1 min par face.",
+  "Garnir de banane, confiture ou sucre.",
+]
+
+[[recipe]]
+id = "salade-fruits"
+name = "Salade de fruits d'hiver"
+meal = "brunch"
+brunch_kind = "sweet"
+minutes = 10
+ing = ["pomme 0.3 pce", "poire 0.3 pce", "clémentine 1 pce", "kiwi 0.5 pce", "banane 0.3 pce", "citron 0.1 pce"]
+steps = ["Couper les fruits en dés, arroser d'un filet de citron pour qu'ils ne noircissent pas."]
+
+[[recipe]]
+id = "oeufs-brouilles-bacon"
+name = "Œufs brouillés, bacon & tomates poêlées"
+meal = "brunch"
+brunch_kind = "savory"
+minutes = 15
+ing = ["œufs 2 pce", "bacon 40 g", "tomate 100 g", "beurre 5 g", "ciboulette 0.1 botte"]
+steps = [
+  "Griller le bacon, puis poêler les tomates coupées en deux dans la graisse.",
+  "Brouiller les œufs à feu doux dans le beurre en remuant sans cesse ; retirer encore crémeux.",
+  "Parsemer de ciboulette.",
+]
+
+[[recipe]]
+id = "shakshuka"
+name = "Shakshuka & pain complet"
+meal = "brunch"
+brunch_kind = "savory"
+minutes = 30
+ing = ["œufs 1.5 pce", "tomates concassées (boîte) 150 g", "poivron 0.4 pce", "oignon 0.25 pce", "ail 0.5 gousse", "cumin 0.5 cc", "paprika 0.5 cc", "feta 25 g", "coriandre 0.1 botte", "huile d'olive 0.5 cs", "pain complet 60 g"]
+steps = [
+  "Revenir oignon, poivron et ail 8 min, ajouter épices et tomates, mijoter 10 min.",
+  "Creuser des puits, y casser les œufs, couvrir et cuire 6 à 8 min.",
+  "Émietter la feta, parsemer de coriandre, servir dans la poêle avec le pain.",
+]
+
+[[recipe]]
+id = "avocado-toast-oeuf"
+name = "Avocado toast & œuf poché"
+meal = "brunch"
+brunch_kind = "savory"
+minutes = 15
+ing = ["pain complet 70 g", "avocat 0.5 pce", "œufs 1 pce", "citron 0.1 pce", "tomates cerises 50 g", "piment 0.1 cc"]
+steps = [
+  "Griller le pain, écraser l'avocat avec citron, sel et piment.",
+  "Pocher les œufs 3 min dans l'eau frémissante vinaigrée.",
+  "Monter les toasts, ajouter les tomates cerises.",
+]
+
+[[recipe]]
+id = "rosti-oeuf"
+name = "Rösti au fromage & œufs au plat"
+meal = "brunch"
+brunch_kind = "savory"
+minutes = 25
+ing = ["rösti (sachet) 150 g", "œufs 1.5 pce", "gruyère râpé 20 g", "beurre 10 g"]
+steps = [
+  "Dorer le rösti 8 min par face dans le beurre ; parsemer de fromage après l'avoir retourné.",
+  "Cuire les œufs au plat à côté.",
+]
+
+[[recipe]]
+id = "bagels-saumon"
+name = "Bagels saumon fumé, fromage frais & concombre"
+meal = "brunch"
+brunch_kind = "savory"
+minutes = 10
+ing = ["bagel 1 pce", "saumon fumé 40 g", "fromage frais 30 g", "concombre 0.2 pce", "aneth 0.05 botte"]
+steps = ["Toaster les bagels, tartiner de fromage frais, garnir de saumon, concombre et aneth."]
+
+[[recipe]]
+id = "plateau-grisons"
+name = "Plateau viande des Grisons, gruyère & cornichons"
+meal = "brunch"
+brunch_kind = "savory"
+minutes = 10
+ing = ["viande séchée des Grisons 30 g", "gruyère (morceau) 40 g", "cornichons 20 g", "tomates cerises 50 g"]
+steps = ["Trancher le fromage, disposer le tout sur une planche."]
+
+[[recipe]]
+id = "omelette-champignons"
+name = "Omelette aux champignons & ciboulette"
+meal = "brunch"
+brunch_kind = "savory"
+minutes = 15
+ing = ["œufs 2 pce", "champignons de Paris 70 g", "gruyère râpé 15 g", "ciboulette 0.1 botte", "beurre 5 g"]
+steps = [
+  "Sauter les champignons émincés dans le beurre 5 min.",
+  "Verser les œufs battus, cuire à feu moyen, ajouter fromage et ciboulette, plier.",
+]

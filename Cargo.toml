@@ -1,0 +1,30 @@
+[package]
+name = "menus"
+version = "0.1.0"
+edition = "2021"
+description = "Menus de la semaine et liste de courses : base JSON en clair, API HTTP, UI web, propositions par Claude"
+
+[dependencies]
+anyhow = "1"
+axum = { version = "0.8", features = ["macros"] }
+chrono = { version = "0.4", features = ["serde"] }
+clap = { version = "4", features = ["derive", "env"] }
+futures-core = "0.3"
+mime_guess = "2"
+notify = "8"
+notify-debouncer-full = "0.5"
+rand = "0.8"
+reqwest = { version = "0.12", default-features = false, features = ["json", "rustls-tls"] }
+rmcp = { version = "3.5", features = ["server", "macros", "schemars", "transport-io"] }
+rust-embed = "8"
+serde = { version = "1", features = ["derive"] }
+serde_json = { version = "1", features = ["preserve_order"] }
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "signal", "sync", "time", "fs", "io-std"] }
+tokio-stream = { version = "0.1", features = ["sync"] }
+toml = "0.8"
+tower-http = { version = "0.6", features = ["trace"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+
+[dev-dependencies]
+tempfile = "3"

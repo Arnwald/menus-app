@@ -1,0 +1,167 @@
+# Catalogue des ingrédients : rayon (r), unité de référence (u), placard (p).
+# Les recettes doivent utiliser ces noms et ces unités pour que la liste
+# de courses additionne correctement. Sel et poivre ne sont jamais listés.
+#
+# Rayons : fl fruits & légumes · bo boulangerie · vi viande & volaille
+#          po poisson · ch frais/traiteur/charcuterie · la lait, crème, œufs
+#          fr fromage · pa pâtes, riz, céréales · co conserves & sauces
+#          ep huiles, épices, condiments · pd petit-déj, sucre, farine
+#          in international · su surgelés · bs boissons · di divers
+
+[ingredients]
+# Fruits & légumes
+"oignon" = { r = "fl", u = "pce" }
+"oignon rouge" = { r = "fl", u = "pce" }
+"ail" = { r = "fl", u = "gousse" }
+"gingembre frais" = { r = "fl", u = "g" }
+"carotte" = { r = "fl", u = "g" }
+"pomme de terre" = { r = "fl", u = "g" }
+"patate douce" = { r = "fl", u = "g" }
+"brocoli" = { r = "fl", u = "g" }
+"courgette" = { r = "fl", u = "g" }
+"poivron" = { r = "fl", u = "pce" }
+"tomate" = { r = "fl", u = "g" }
+"tomates cerises" = { r = "fl", u = "g" }
+"concombre" = { r = "fl", u = "pce" }
+"salade verte" = { r = "fl", u = "pce" }
+"roquette" = { r = "fl", u = "g" }
+"épinards frais" = { r = "fl", u = "g" }
+"champignons de Paris" = { r = "fl", u = "g" }
+"poireau" = { r = "fl", u = "g" }
+"courge butternut" = { r = "fl", u = "g" }
+"céleri branche" = { r = "fl", u = "g" }
+"chou rouge" = { r = "fl", u = "g" }
+"avocat" = { r = "fl", u = "pce" }
+"citron" = { r = "fl", u = "pce" }
+"citron vert" = { r = "fl", u = "pce" }
+"persil" = { r = "fl", u = "botte" }
+"coriandre" = { r = "fl", u = "botte" }
+"basilic" = { r = "fl", u = "botte" }
+"ciboulette" = { r = "fl", u = "botte" }
+"aneth" = { r = "fl", u = "botte" }
+"pomme" = { r = "fl", u = "pce" }
+"poire" = { r = "fl", u = "pce" }
+"banane" = { r = "fl", u = "pce" }
+"clémentine" = { r = "fl", u = "pce" }
+"kiwi" = { r = "fl", u = "pce" }
+
+# Boulangerie
+"pain complet" = { r = "bo", u = "g" }
+"pain de mie complet" = { r = "bo", u = "tranche" }
+"tresse (Zopf)" = { r = "bo", u = "g" }
+"bagel" = { r = "bo", u = "pce" }
+
+# Viande & volaille
+"filet de poulet" = { r = "vi", u = "g" }
+"poulet entier" = { r = "vi", u = "pce" }
+"viande hachée de bœuf" = { r = "vi", u = "g" }
+"émincé de bœuf" = { r = "vi", u = "g" }
+"bœuf à braiser" = { r = "vi", u = "g" }
+
+# Poisson
+"filet de saumon" = { r = "po", u = "g" }
+"filet de cabillaud" = { r = "po", u = "g" }
+"crevettes décortiquées" = { r = "po", u = "g" }
+"saumon fumé" = { r = "po", u = "g" }
+
+# Frais : charcuterie, traiteur, pâtes fraîches
+"jambon cuit" = { r = "ch", u = "tranche" }
+"lardons" = { r = "ch", u = "g" }
+"bacon" = { r = "ch", u = "g" }
+"viande séchée des Grisons" = { r = "ch", u = "g" }
+"tofu nature" = { r = "ch", u = "g" }
+"falafels" = { r = "ch", u = "pce" }
+"houmous" = { r = "ch", u = "g" }
+"gnocchis" = { r = "ch", u = "g" }
+"tortellini frais" = { r = "ch", u = "g" }
+"pâte à pizza (rouleau)" = { r = "ch", u = "pce" }
+"pâte brisée (rouleau)" = { r = "ch", u = "pce" }
+"rösti (sachet)" = { r = "ch", u = "g" }
+
+# Lait, crème, beurre & œufs
+"lait" = { r = "la", u = "ml" }
+"demi-crème" = { r = "la", u = "ml" }
+"beurre" = { r = "la", u = "g", p = true }
+"œufs" = { r = "la", u = "pce" }
+"yaourt nature" = { r = "la", u = "g" }
+"yaourt grec" = { r = "la", u = "g" }
+"fromage frais" = { r = "la", u = "g" }
+
+# Fromage
+"parmesan" = { r = "fr", u = "g" }
+"gruyère râpé" = { r = "fr", u = "g" }
+"gruyère (morceau)" = { r = "fr", u = "g" }
+"mozzarella" = { r = "fr", u = "g" }
+"feta" = { r = "fr", u = "g" }
+"fromage à raclette (tranches)" = { r = "fr", u = "g" }
+
+# Pâtes, riz & céréales
+"riz basmati" = { r = "pa", u = "g" }
+"riz à risotto" = { r = "pa", u = "g" }
+"spaghetti" = { r = "pa", u = "g" }
+"pâtes courtes" = { r = "pa", u = "g" }
+"cornettes" = { r = "pa", u = "g" }
+"lasagnes (feuilles)" = { r = "pa", u = "g" }
+"semoule de blé" = { r = "pa", u = "g" }
+"quinoa" = { r = "pa", u = "g" }
+"polenta" = { r = "pa", u = "g" }
+"lentilles corail" = { r = "pa", u = "g" }
+
+# Conserves, sauces & bocaux
+"tomates concassées (boîte)" = { r = "co", u = "g" }
+"sauce tomate (passata)" = { r = "co", u = "g" }
+"pois chiches (boîte)" = { r = "co", u = "g" }
+"haricots noirs (boîte)" = { r = "co", u = "g" }
+"haricots rouges (boîte)" = { r = "co", u = "g" }
+"haricots blancs (boîte)" = { r = "co", u = "g" }
+"maïs (boîte)" = { r = "co", u = "g" }
+"thon (boîte)" = { r = "co", u = "g" }
+"olives noires" = { r = "co", u = "g" }
+"pesto" = { r = "co", u = "g" }
+"cornichons" = { r = "co", u = "g" }
+"compote de pommes" = { r = "co", u = "g" }
+
+# Huiles, épices & condiments (placard)
+"huile d'olive" = { r = "ep", u = "cs", p = true }
+"huile de colza" = { r = "ep", u = "cs", p = true }
+"vinaigre balsamique" = { r = "ep", u = "cs", p = true }
+"moutarde" = { r = "ep", u = "cc", p = true }
+"concentré de tomate" = { r = "ep", u = "cs", p = true }
+"bouillon (cube)" = { r = "ep", u = "pce", p = true }
+"paprika" = { r = "ep", u = "cc", p = true }
+"cumin" = { r = "ep", u = "cc", p = true }
+"curry en poudre" = { r = "ep", u = "cc", p = true }
+"origan" = { r = "ep", u = "cc", p = true }
+"herbes de Provence" = { r = "ep", u = "cc", p = true }
+"cannelle" = { r = "ep", u = "cc", p = true }
+"piment" = { r = "ep", u = "cc", p = true }
+"muscade" = { r = "ep", u = "pincée", p = true }
+
+# Petit-déjeuner, sucre & farine
+"farine" = { r = "pd", u = "g", p = true }
+"sucre" = { r = "pd", u = "g", p = true }
+"levure chimique" = { r = "pd", u = "cc", p = true }
+"miel" = { r = "pd", u = "cs", p = true }
+"sirop d'érable" = { r = "pd", u = "cs", p = true }
+"confiture" = { r = "pd", u = "g", p = true }
+"beurre de cacahuète" = { r = "pd", u = "cs", p = true }
+"flocons d'avoine" = { r = "pd", u = "g" }
+"amandes ou noisettes" = { r = "pd", u = "g" }
+"raisins secs" = { r = "pd", u = "g" }
+"pruneaux" = { r = "pd", u = "g" }
+
+# International
+"lait de coco" = { r = "in", u = "ml" }
+"sauce soja" = { r = "in", u = "cs", p = true }
+"tortillas de blé" = { r = "in", u = "pce" }
+"nouilles aux œufs" = { r = "in", u = "g" }
+"nouilles soba" = { r = "in", u = "g" }
+
+# Surgelés
+"petits pois surgelés" = { r = "su", u = "g" }
+"haricots verts surgelés" = { r = "su", u = "g" }
+"fruits rouges surgelés" = { r = "su", u = "g" }
+
+# Boissons
+"jus d'orange" = { r = "bs", u = "ml" }
+"vin rouge" = { r = "bs", u = "ml" }
