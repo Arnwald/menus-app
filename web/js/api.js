@@ -23,7 +23,19 @@ async function send(method, path, { json, form } = {}) {
   if (json !== undefined) options.body = JSON.stringify(json);
   if (form) options.body = form;
 
-  const response = await fetch(path, options);
+  let response;
+  try {
+    response = await fetch(path, options);
+  } catch (err) {
+    // Un jeton mal formé fait échouer la requête avant même son envoi :
+    // on l'oublie et on le redemande, comme pour un jeton refusé.
+    if (token()) {
+      setToken('');
+      const given = window.prompt("Le jeton enregistré est invalide. Jeton d'accès :");
+      if (given) { setToken(given); return send(method, path, { json, form }); }
+    }
+    throw err;
+  }
   if (response.status === 401) {
     const given = window.prompt("Cette instance demande un jeton d'accès :");
     if (given) { setToken(given.trim()); return send(method, path, { json, form }); }

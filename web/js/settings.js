@@ -104,7 +104,7 @@ export function renderSettings(el) {
     h('div', { class: 'card settings-block' },
       h('h2', {}, 'Avec Claude'),
       h('p', { style: 'margin:0' }, 'Dans Claude (application de bureau ou Claude Code), le serveur MCP « menus » donne accès à cette app : demander une semaine selon vos envies, ajouter une recette collée ou photographiée, la modifier. Les changements apparaissent ici aussitôt.'),
-      token() ? h('button', { class: 'btn small', onClick: () => { setToken(''); location.reload(); } }, 'Oublier le jeton d\'accès sur cet appareil') : null,
+      h('button', { class: 'btn small', onClick: () => { setToken(''); location.reload(); } }, 'Changer le jeton d\'accès sur cet appareil'),
     ),
   );
 }
