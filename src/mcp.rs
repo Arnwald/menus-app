@@ -62,8 +62,16 @@ impl Api {
       request = request.json(&body);
     }
     let response = request.send().await.map_err(|e| {
+      // La cause réelle (refus, délai, réseau inaccessible) est dans la chaîne d'erreurs.
+      let mut cause = e.to_string();
+      let mut source = std::error::Error::source(&e);
+      while let Some(s) = source {
+        cause.push_str(" : ");
+        cause.push_str(&s.to_string());
+        source = s.source();
+      }
       format!(
-        "menus ne répond pas à {} ({e}). Lancer `menus serve`, ou vérifier l'adresse donnée à `menus mcp --url`.",
+        "menus ne répond pas à {} ({cause}). Lancer `menus serve`, ou vérifier l'adresse donnée à `menus mcp --url`.",
         self.base
       )
     })?;
@@ -1050,7 +1058,9 @@ impl ServerHandler for Menus {
 
 /// Sert le protocole MCP sur stdin/stdout jusqu'à ce que l'assistant ferme la connexion.
 pub async fn run(url: String, token: Option<String>) -> anyhow::Result<()> {
-  let http = reqwest::Client::builder().timeout(Duration::from_secs(30)).build()?;
+  // Les assistants lancent parfois leurs serveurs MCP derrière un proxy (HTTP_PROXY) :
+  // l'instance est sur le réseau local, on y va toujours en direct.
+  let http = reqwest::Client::builder().timeout(Duration::from_secs(30)).no_proxy().build()?;
   let api = Api {
     http,
     base: url.trim_end_matches('/').to_string(),

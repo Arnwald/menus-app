@@ -97,7 +97,9 @@ async fn main() -> Result<()> {
     Command::List { week, days } => list_command(&cli.data, &week, days.as_deref()),
     Command::Propose { week, replace, dry_run } => propose_command(&cli.data, &week, replace, dry_run),
     Command::Mcp { url, token } => mcp::run(url, token.map(|t| t.split_whitespace().collect::<String>()).filter(|t| !t.is_empty())).await,
-    Command::SetupClaude { url, token, config } => setup::claude_desktop(&url, token.map(|t| t.split_whitespace().collect::<String>()).filter(|t| !t.is_empty()), config),
+    Command::SetupClaude { url, token, config } => {
+      setup::claude_desktop(&url, token.map(|t| t.split_whitespace().collect::<String>()).filter(|t| !t.is_empty()), config)
+    }
   }
 }
 
@@ -161,7 +163,10 @@ fn propose_command(data: &PathBuf, week: &str, replace: bool, dry_run: bool) -> 
 
 async fn serve(data: &PathBuf, host: &str, port: u16) -> Result<()> {
   let store = store::Store::open(data)?;
-  let auth_token = std::env::var("MENUS_TOKEN").ok().map(|t| t.split_whitespace().collect::<String>()).filter(|t| !t.is_empty());
+  let auth_token = std::env::var("MENUS_TOKEN")
+    .ok()
+    .map(|t| t.split_whitespace().collect::<String>())
+    .filter(|t| !t.is_empty());
   let state = app::AppState::new(store, auth_token);
 
   // Gardée en vie le temps du processus : la surveillance s'arrête avec elle.
