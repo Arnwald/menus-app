@@ -3,10 +3,11 @@
 const TOKEN_KEY = 'menus-token';
 
 export function token() {
-  try { return localStorage.getItem(TOKEN_KEY) || ''; } catch { return ''; }
+  try { return (localStorage.getItem(TOKEN_KEY) || '').replace(/\s+/g, ''); } catch { return ''; }
 }
 
 export function setToken(value) {
+  value = (value || '').replace(/\s+/g, '');
   try { value ? localStorage.setItem(TOKEN_KEY, value) : localStorage.removeItem(TOKEN_KEY); } catch { /* mode privé */ }
 }
 
